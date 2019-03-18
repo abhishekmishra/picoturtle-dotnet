@@ -5,23 +5,13 @@ namespace picoturtle
 {
     public class TurtleCommand
     {
-        private string commandName { get; }
-        private List<string> valueList { get; set; }
-        private Dictionary<string, string> valueObj { get; set; }
-        private bool valueIsObj { get; }
+        public string cmd { get; }
+        public List<Object> args { get; set; }
 
-        public TurtleCommand(string cmd, bool isObj)
+        public TurtleCommand(string cmdName)
         {
-            commandName = cmd;
-            valueIsObj = isObj;
-            if(valueIsObj)
-            {
-                valueObj = new Dictionary<string, string>();
-            }
-            else
-            {
-                valueList = new List<string>();
-            }
+            cmd = cmdName;
+            args = new List<object>();
         }
     }
 }

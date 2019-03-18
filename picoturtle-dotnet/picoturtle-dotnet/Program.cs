@@ -8,7 +8,7 @@ namespace picoturtledotnet
         public static void Main(string[] args)
         {
             Turtle t = new picoturtle.Turtle();
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Created Turtle with name -> " + t.name);
         }
     }
 }
