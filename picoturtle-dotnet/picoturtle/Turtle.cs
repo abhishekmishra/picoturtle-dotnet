@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
+using NDesk.Options;
 using Newtonsoft.Json;
 
 namespace picoturtle
@@ -16,6 +17,53 @@ namespace picoturtle
         private int bulkLimit;
         private List<TurtleCommand> commands;
         private HttpClient client;
+
+        public static Turtle CreateTurtle(string[] args)
+        {
+            string turtle_name = null;
+            int port = 3000;
+            bool show_help = false;
+
+            var p = new OptionSet()
+            {
+                { "n|name=", "the {NAME} of the turtle if already created.", v=>turtle_name = v },
+                { "p|port=", "the {PORT} for the turtle server to connect to", (int v)=>port = v},
+                { "h|help",  "show this message and exit", v => show_help = v != null }
+            };
+
+            List<string> extra;
+            try
+            {
+                extra = p.Parse(args);
+            }
+            catch (OptionException e)
+            {
+                Debug.WriteLine("turtle: " + e.Message);
+                Debug.WriteLine("Try `turtle --help' for more information.");
+                return null;
+            }
+
+
+            if (show_help)
+            {
+                ShowHelp(p);
+                return null;
+            }
+
+            return new Turtle(name: turtle_name, port: port);
+        }
+
+        static void ShowHelp(OptionSet p)
+        {
+            Debug.WriteLine("Usage: greet [OPTIONS]+ message");
+            Debug.WriteLine("Greet a list of individuals with an optional message.");
+            Debug.WriteLine("If no message is specified, a generic greeting is used.");
+            Debug.WriteLine("");
+            Debug.WriteLine("Options:");
+            Debug.WriteLine("-p|--port port of the turtle server");
+            Debug.WriteLine("-n|--name name of the turtle");
+        }
+
 
         public Turtle(string name = null,
                  string host = "127.0.0.1",
