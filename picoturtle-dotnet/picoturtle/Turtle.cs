@@ -79,6 +79,7 @@ namespace picoturtle
 
                         //Debug.WriteLine(responseText);
                         var t = JsonConvert.DeserializeObject<TurtleState>(responseText);
+                        this.commands = new List<TurtleCommand>();
                         return t;
                     }
                     catch (HttpRequestException e)
@@ -86,8 +87,6 @@ namespace picoturtle
                         Debug.WriteLine("\nException Caught!");
                         Debug.WriteLine("Message :{0} ", e.Message);
                     }
-
-                    this.commands = new List<TurtleCommand>();
                 }
             }
             else
@@ -115,7 +114,6 @@ namespace picoturtle
                         i++;
                     }
                 }
-                string json = JsonConvert.SerializeObject(this.commands);
                 try
                 {
                     //Debug.WriteLine(request_url);
@@ -141,7 +139,7 @@ namespace picoturtle
             return turtleUrl + "/index.html?details=0&list=0&name=" + name;
         }
 
-        public TurtleState Init(double x=250, double y=250)
+        public TurtleState Init(double x = 250, double y = 250)
         {
             commands = new List<TurtleCommand>();
             var args = new List<KeyValuePair<string, Object>>();
