@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>picoturtle-dotnet</id>
+    <version>1.0.0</version>
+    <authors>Abhishek Mishra</authors>
+    <owners>Abhishek Mishra</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/abhishekmishra/picoturtle-dotnet</projectUrl>
+    <iconUrl>https://abhishekmishra.github.io/picoturtle/img/pico.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PicoTurtle C# .NET client.</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2019 Abhishek Mishra</copyright>
+    <tags>picoturtle turtle</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="12.0.1" />
+      <dependency id="NDesk.Options" version="0.2.1"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="picoturtle\bin\Release\picoturtle.dll" target="lib\picoturtle.dll"/>
+  </files>
+</package>
