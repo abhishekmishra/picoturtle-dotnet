@@ -1,0 +1,13 @@
+language: csharp
+solution: picoturtle-dotnet.sln
+before_deploy:
+- cd bin/Release
+- zip picoturtle-dotnet.zip *
+- cd ../..
+deploy:
+  provider: releases
+  api_key:
+    secure: H8PiCQ4dFkojut+kKMkZpg39rEV0aN45CuuBg7vrGswFUfQRP29ITrfT3M04wsV+cyFWx0UpDs308XJWJUwINaJfUI0wa7pOnRkTYpyTHK4BM75BGrTOq59xyS+LVbSZABQrYhxLn9JPdaeE8Oijnkjv8y+ZfevaHHTYOV72Ps0m4m80lmyP3n7LR9m77QynpYuacgxx1NonRi7BtJ+wi0wAQFmrScBwokZgYvXzGcmpa6B8pE9GZVdA9AUmUvZ5MCOs7TnzhJjsD6KpgRI8CjmvbzIGvPzWKCRKD/M645sqaHflHHCDZVGW43iZo+1KoppRuwVek3RxPDIdPcPHfer3oyLpu5UQnw6tSKzKuWdDbRLK58QRGzOV0GVs/ZgbLXpOwWIsY0+em/qWd4FF+1A0FxUWgwJZsio9bDIZjbLi6EnQ1aTlpo/U+378lujfcs9auLBMgbPF0etOZITBhppQbOohrc9shDY9DY2fRYZaLa+hE97etmXW8te7dRuUb8H2H33GKzSCvRq3K/kqRY4X/voXvqX9iTqsGwGxxJSZGwNngsVPF2VTBt33cXz0gWk9qhi+xFt5eTUT/AJsGW32/IkBOJAdqgTQuT+YTB7B7bBHWi+zRRNteFspak4aUe3V4QTUap3gSTDqKwsmK4/wTDTkkOYNbVovr4+hRVA=
+  file: "./bin/Release/picoturtle-dotnet.zip"
+  on:
+    repo: abhishekmishra/picoturtle-dotnet
