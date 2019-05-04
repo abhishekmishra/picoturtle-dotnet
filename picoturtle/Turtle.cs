@@ -78,10 +78,10 @@ namespace picoturtle
             this.name = name;
             this.commands = new List<TurtleCommand>();
             client = new HttpClient();
-            //if (this.name == null)
-            //{
-            //    this.Init();
-            //}
+            if (this.name == null)
+            {
+                this.Init();
+            }
         }
 
         private TurtleState TurtleRequest(String cmd, List<KeyValuePair<string, Object>> args = null, bool is_obj = false)
@@ -334,7 +334,22 @@ namespace picoturtle
 
             return TurtleRequest("pencolour", args, true);
         }
+
+        public TurtleState canvas_size(int width, int height)
+        {
+            var args = new List<KeyValuePair<string, Object>>();
+            args.Add(new KeyValuePair<string, Object>("width", width));
+            args.Add(new KeyValuePair<string, Object>("height", height));
+
+            return TurtleRequest("canvas_size", args);
+        }
+
+        public TurtleState export_img(string filename)
+        {
+            var args = new List<KeyValuePair<string, Object>>();
+            args.Add(new KeyValuePair<string, Object>("filename", filename));
+
+            return TurtleRequest("export_img", args);
+        }
     }
-
-
 }

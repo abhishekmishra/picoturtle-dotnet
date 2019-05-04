@@ -25,6 +25,22 @@ namespace picoturtle
         }
     }
 
+    public class Dimension
+    {
+        public int width;
+        public int height;
+
+        public Dimension()
+        {
+
+        }
+
+        public Dimension(int w, int h)
+        {
+            this.width = w;
+            this.height = h;
+        }
+    }
 
     public class TurtleState
     {
@@ -37,6 +53,7 @@ namespace picoturtle
         public string name;
         public int last;
         public string font_str;
+        public Dimension canvas_size;
 
         public TurtleState()
         {
