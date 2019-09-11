@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>picoturtle-dotnet</id>
-    <version>1.0.0</version>
+    <version>0.0.2</version>
     <authors>Abhishek Mishra</authors>
     <owners>Abhishek Mishra</owners>
     <license type="expression">MIT</license>
